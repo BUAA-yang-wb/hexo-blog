@@ -6,7 +6,8 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "deploy:aliyun": "set GIT_SSH_COMMAND=ssh -F D:/Desktop/self-learn/blog/ssh_config&& hexo clean && hexo d -g"
   },
   "hexo": {
     "version": "7.3.0"
