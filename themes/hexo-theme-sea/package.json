@@ -1,0 +1,30 @@
+{
+  "name": "hexo-theme-sea",
+  "version": "1.3.5",
+  "description": "Simple theme for Hexo.",
+  "scripts": {
+    "test": "echo test"
+  },
+  "license": "MIT",
+  "author": "haizou",
+  "bugs": {
+    "url": "https://github.com/hai-zou/hexo-theme-sea/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hai-zou/hexo-theme-sea.git"
+  },
+  "homepage": "https://hai-zou.github.io/hexo-theme-sea/",
+  "keywords": [
+    "hexo",
+    "theme",
+    "sea"
+  ],
+  "dependencies": {
+    "hexo-renderer-stylus": "^3.0.0",
+    "hexo-pagination": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

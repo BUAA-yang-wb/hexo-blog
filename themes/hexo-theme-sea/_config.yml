@@ -1,0 +1,87 @@
+# 首页配置
+home:
+  hero:
+    name: 我的博客 # 名称
+    intro: 记录学习与生活，欢迎来到我的博客 🌟 # 个人简介
+    avatar: /images/1.jpg # 头像 (把你的头像图片放到博客根目录的 source/images/ 文件夹下，并命名为 avatar.jpg)
+  posts: recent # recent: 最新文章 | recommend: 推荐文章
+
+# 所有文章
+articles:
+  path: 'posts' # 路由
+  per_page: 10 # 分页数
+  order_by: -date # 文章排序
+
+# 菜单栏
+menu:
+  - name: 归档
+    url: /archives/
+  - name: 友链
+    url: /friends/
+  - name: 关于
+    url: /about/
+
+comment:
+  enable: false
+  type: # waline | giscus
+
+# Waline https://waline.js.org/
+waline:
+  serverURL:
+  options:
+
+# Giscus https://giscus.app/zh-CN
+giscus:
+  repo:
+  repoid:
+  category:
+  categoryid:
+  mapping:
+  term:
+  reactionsenabled:
+  emitmetadata:
+  inputposition:
+  loading:
+
+search:
+  enable: true
+  type: # algolia | pagefind
+
+# Docsearch https://docsearch.algolia.com/apply/
+algolia:
+  appId:
+  apiKey:
+  indexName:
+
+# 友链模块
+friends:
+  # - name: xxx's blog
+  #   avatar: https://xx.png
+  #   link: https://blog.xxx.com
+  #   desc: xxx
+
+# Website counter: vercount (https://github.com/EvanNotFound/vercount) | busuanzi (https://busuanzi.ibruce.info/)
+counter:
+  enable: true
+  type: busuanzi # vercount | busuanzi
+
+footer:
+  builtUpTime: 2024-01-01 12:00:00 # 2020-05-20 13:14:00
+
+# 社交链接
+socialLink:
+  # - name: Email
+  #   link: mailto:xx@xx.com
+  # - name: RSS
+  #   link: rss link
+
+# 主题色
+primaryColor: '#10b981'
+
+# 字体配置
+# fontFamily: 自定义字体，支持多个字体，用逗号分隔
+# 例如: fontFamily: '"PingFang SC", "Microsoft YaHei", sans-serif'
+# 留空则使用默认等宽字体
+fontFamily: #
+
+favicon: # Favicon 图标

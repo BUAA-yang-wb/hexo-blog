@@ -1,0 +1,31 @@
+<head>
+  <meta charset="utf-8">
+  <title>{{ generatePageTitle(page) }}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="{{ config.keywords }}">
+  <meta name="theme-color" content="{{ theme.primaryColor }}">
+
+  <link rel="canonical" href="{{ full_url_for(page.path) }}">
+
+  {% if theme.favicon %}
+    {{ favicon_tag(theme.favicon) }}
+  {% endif %}
+
+  {{ open_graph() }}
+  {{ meta_generator() }}
+  {{ generateJSONLD(page) }}
+
+  {# CSS #}
+  {{ css('css/main') }}
+  <style>
+    :root {
+      --sea-color-primary: {{ theme.primaryColor }};
+      {% if theme.fontFamily %}
+      --sea-font-family: {{ theme.fontFamily }};
+      {% endif %}
+    }
+  </style>
+
+  {{ js('js/theme_mode') }}
+</head>
