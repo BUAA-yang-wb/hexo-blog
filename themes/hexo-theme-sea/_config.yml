@@ -1,7 +1,7 @@
 # 首页配置
 home:
   hero:
-    name: 我的博客 # 名称
+    name: Strncat # 名称
     intro: 记录学习与生活，欢迎来到我的博客 🌟 # 个人简介
     avatar: /images/1.jpg # 头像 (把你的头像图片放到博客根目录的 source/images/ 文件夹下，并命名为 avatar.jpg)
   posts: recent # recent: 最新文章 | recommend: 推荐文章
@@ -14,10 +14,18 @@ articles:
 
 # 菜单栏
 menu:
+  - name: 首页
+    url: /
+  - name: 文章
+    url: /posts/
   - name: 归档
     url: /archives/
-  - name: 友链
-    url: /friends/
+  #- name: 分类
+  #  url: /categories/
+  #- name: 标签
+  #  url: /tags/
+  #- name: 友链
+  #  url: /friends/
   - name: 关于
     url: /about/
 
@@ -44,8 +52,8 @@ giscus:
   loading:
 
 search:
-  enable: true
-  type: # algolia | pagefind
+  enable: false
+  type: pagefind # algolia | pagefind
 
 # Docsearch https://docsearch.algolia.com/apply/
 algolia:
@@ -61,15 +69,18 @@ friends:
   #   desc: xxx
 
 # Website counter: vercount (https://github.com/EvanNotFound/vercount) | busuanzi (https://busuanzi.ibruce.info/)
+# 网站访问量统计
 counter:
-  enable: true
+  enable: false
   type: busuanzi # vercount | busuanzi
 
 footer:
-  builtUpTime: 2024-01-01 12:00:00 # 2020-05-20 13:14:00
+  builtUpTime: 2026-03-05 15:00:00 # 2020-05-20 13:14:00
 
 # 社交链接
 socialLink:
+  - name: GitHub
+    link: https://github.com/BUAA-yang-wb
   # - name: Email
   #   link: mailto:xx@xx.com
   # - name: RSS

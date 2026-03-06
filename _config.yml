@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 我的个人博客
+title: Think.Code.Live.
 subtitle: '记录生活与技术'
 description: '这是一个基于 Hexo 的个人博客'
 keywords: '前端, 博客, Hexo'
-author: 我的名字
-language: zh-CN
+author: Wenbo Yang
+language: zh
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -101,4 +101,6 @@ theme: hexo-theme-sea
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@182.92.60.128:/home/git/blog.git
+  branch: main
