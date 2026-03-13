@@ -4,7 +4,7 @@
 
 # Site
 title: Think.Code.Live.
-subtitle: '记录生活与技术'
+subtitle: ''
 description: '这是一个基于 Hexo 的个人博客'
 keywords: '前端, 博客, Hexo'
 author: Wenbo Yang
@@ -48,6 +48,10 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace: ''
+
+# Markdown 配置
+marked:
+  toc: true
   wrap: true
   hljs: false
 prismjs:

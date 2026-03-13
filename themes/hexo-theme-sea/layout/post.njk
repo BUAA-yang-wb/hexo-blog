@@ -13,22 +13,28 @@
       </div>
     {% endif %}
   </header>
-  <div class="sea-doc">
-    {% if page.tableOfContents %}
-      {% set tocContent = toc(page.content) %}
-      {% if tocContent %}
-        <div class="sea-article-catalog">
-          <h2 class="sea-article-catalog-title">
-            {{ partial('svg/arrow_right_fill') }}
-            {{ __('page.contents') }}
-          </h2>
-          {{ tocContent }}
-        </div>
-      {% endif %}
+  {% set tocContent = toc(page.content) %}
+  <div class="sea-doc{% if theme.toc.enable and tocContent %} sea-doc-with-toc{% endif %}">
+    {% if page.toc and tocContent %}
+      <div class="sea-article-catalog">
+        <h2 class="sea-article-catalog-title">
+          {{ partial('svg/arrow_right_fill') }}
+          {{ __('page.contents') }}
+        </h2>
+        {{ tocContent }}
+      </div>
     {% endif %}
     <div class="sea-article-content">
       {{ render(page.content) }}
     </div>
+    {% if theme.toc.enable and tocContent %}
+      <aside class="sea-article-toc-sidebar">
+        <div class="sea-article-toc-sidebar-inner">
+          <h3 class="sea-article-toc-title">{{ __('page.contents') }}</h3>
+          {{ tocContent }}
+        </div>
+      </aside>
+    {% endif %}
   </div>
 
   {% if is_post() %}
@@ -47,6 +53,51 @@
         tocContent.classList.toggle('sea-article-catalog-show');
         toggleIcon.classList.toggle('sea-svg-icon-rotate');
       });
+    }
+
+    // 右侧目录滚动高亮
+    const tocSidebar = document.querySelector('.sea-article-toc-sidebar');
+    if (tocSidebar) {
+      const tocLinks = tocSidebar.querySelectorAll('.toc-link');
+      const headings = document.querySelectorAll('.sea-doc h1, .sea-doc h2, .sea-doc h3, .sea-doc h4, .sea-doc h5, .sea-doc h6');
+
+      if (tocLinks.length > 0 && headings.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              tocLinks.forEach(link => {
+                link.classList.remove('is-active');
+                // 解码 href 后再比较
+                const linkHref = decodeURIComponent(link.getAttribute('href'));
+                if (linkHref === '#' + id) {
+                  link.classList.add('is-active');
+                }
+              });
+            }
+          });
+        }, { rootMargin: '-80px 0px -80% 0px' });
+
+        headings.forEach(heading => {
+          if (heading.id) observer.observe(heading);
+        });
+
+        // 点击目录平滑滚动
+        tocLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            // 解码 href 获取目标 id
+            const targetId = decodeURIComponent(this.getAttribute('href')).substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              const headerOffset = 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+          });
+        });
+      }
     }
   });
 </script>

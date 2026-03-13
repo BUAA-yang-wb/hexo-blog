@@ -95,4 +95,8 @@ primaryColor: '#10b981'
 # 留空则使用默认等宽字体
 fontFamily: #
 
+# 目录导航
+toc:
+  enable: true # 是否启用右侧目录导航
+
 favicon: # Favicon 图标
