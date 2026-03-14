@@ -4,3 +4,4 @@ docs/
 ssh_config
 public/
 .deploy_git/
+db.json
