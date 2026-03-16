@@ -55,6 +55,24 @@
       });
     }
 
+    // 点击右侧目录标题返回顶部
+    const tocSidebarTitle = document.querySelector('.sea-article-toc-title');
+    if (tocSidebarTitle) {
+      tocSidebarTitle.style.cursor = 'pointer';
+      tocSidebarTitle.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // 点击顶部目录标题返回顶部
+    const catalogTitle = document.querySelector('.sea-article-catalog-title');
+    if (catalogTitle) {
+      catalogTitle.style.cursor = 'pointer';
+      catalogTitle.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
     // 右侧目录滚动高亮
     const tocSidebar = document.querySelector('.sea-article-toc-sidebar');
     if (tocSidebar) {
