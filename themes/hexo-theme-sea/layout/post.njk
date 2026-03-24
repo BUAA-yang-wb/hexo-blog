@@ -39,6 +39,7 @@
 
   {% if is_post() %}
     {{ partial('_partial/main/prev_next') }}
+    <a class="sea-article-home-link" href="{{ url_for('/') }}" aria-label="返回首页">首页</a>
   {% endif %}
 </article>
 
@@ -74,6 +75,16 @@
     }
 
     // 右侧目录滚动高亮
+    const articleHomeLink = document.querySelector('.sea-article-home-link');
+    if (articleHomeLink) {
+      const toggleArticleHomeLink = function () {
+        articleHomeLink.classList.toggle('is-visible', window.scrollY > 320);
+      };
+
+      toggleArticleHomeLink();
+      window.addEventListener('scroll', toggleArticleHomeLink, { passive: true });
+    }
+
     const tocSidebar = document.querySelector('.sea-article-toc-sidebar');
     if (tocSidebar) {
       const tocLinks = tocSidebar.querySelectorAll('.toc-link');
