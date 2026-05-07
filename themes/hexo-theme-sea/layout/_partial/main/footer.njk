@@ -22,15 +22,13 @@
       <span class="sea-footer-counter-item">{{ _p('footer.site_uv') }} <span id="{{ counterIdPrefix }}_site_uv">0</span></span>
     </div>
   {% endif %}
-  {% set currentYear = moment().year() %}
-  {% set sinceYear = moment(theme.footer.builtUpTime).year() %}
   {% set currentYearMonth = moment().format('YYYY.M') %}
   {% set sinceYearMonth = moment(theme.footer.builtUpTime).format('YYYY.M') %}
   <div class="sea-footer-row">
     <div class="sea-footer-copyright">
       <span>©</span>
-      {% if currentYear > sinceYear %}
-        {{ sinceYearMonth + '-' + currentYearMonth }}
+      {% if currentYearMonth !== sinceYearMonth %}
+        {{ sinceYearMonth }} - {{ currentYearMonth }}
       {% else %}
         {{ currentYearMonth }}
       {% endif %}
