@@ -1,0 +1,241 @@
+.sea-article-content {
+  word-break: break-word;
+  margin-top: 1.5rem;
+}
+
+.sea-article-title {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.sea-post-meta {
+  color: var(--sea-color-text-2);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
+}
+
+.sea-post-time,
+.sea-post-tags,
+.sea-post-categories,
+.sea-post-counter {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  transition: color 0.3s ease;
+}
+
+.tag-link {
+  color: var(--sea-color-text-2);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.tag-link:hover {
+  color: var(--sea-color-primary);
+}
+
+.tag-link.is-active {
+  color: var(--sea-color-primary);
+  font-weight: 500;
+}
+
+.sea-post-meta__center {
+  justify-content: center;
+}
+
+.sea-post-counter {
+  color: var(--sea-color-text-2);
+}
+
+.sea-article-catalog-title {
+  display: flex;
+  align-items: center;
+}
+
+.sea-article-catalog-title .sea-svg-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: .5rem;
+  cursor: pointer;
+}
+
+.sea-article-catalog-title .sea-svg-icon.sea-svg-icon-rotate {
+  transform: rotate(90deg);
+}
+
+.sea-article-catalog > .toc {
+  display: none;
+}
+
+.sea-article-catalog > .toc.sea-article-catalog-show {
+  display: block;
+}
+
+.sea-article-catalog .toc,
+.sea-article-catalog .toc-child {
+  list-style-type: disc;
+  padding-left: 1.8rem;
+}
+
+.sea-article-catalog .toc-number {
+  display: none;
+}
+
+.sea-article-catalog .toc-item {
+  margin-top: 1rem;
+}
+
+.sea-article-catalog .toc-link {
+  text-decoration: none;
+  color: inherit;
+  padding: .5rem 0;
+  font-weight: 500;
+}
+
+.sea-article-catalog .toc-link:hover {
+  color: var(--sea-color-primary);
+}
+
+/* 右侧目录侧边栏 */
+.sea-doc-with-toc {
+  position: relative;
+}
+
+.sea-article-toc-sidebar {
+  display: none;
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 200px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sea-article-toc-sidebar-inner {
+  padding: 1rem;
+  background: var(--sea-color-bg-soft);
+  border-radius: 8px;
+  border: 1px solid var(--sea-color-border-1);
+}
+
+.sea-article-toc-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--sea-color-text-1);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sea-color-divider);
+}
+
+.sea-article-toc-sidebar .toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sea-article-toc-sidebar .toc-child {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.sea-article-toc-sidebar .toc-item {
+  margin: 0.4rem 0;
+}
+
+.sea-article-toc-sidebar .toc-link {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--sea-color-text-2);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+  line-height: 1.4;
+}
+
+.sea-article-toc-sidebar .toc-link:hover {
+  color: var(--sea-color-primary);
+}
+
+.sea-article-toc-sidebar .toc-link.is-active {
+  color: var(--sea-color-primary);
+  font-weight: 500;
+}
+
+/* 不同级别的标题缩进 */
+.sea-article-toc-sidebar .toc-child .toc-link {
+  padding-left: 0.5rem;
+}
+
+.sea-article-toc-sidebar .toc-child .toc-child .toc-link {
+  padding-left: 1rem;
+}
+
+.sea-article-home-link {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.5rem;
+  height: 3.5rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sea-color-bg-soft) 82%, transparent);
+  color: var(--sea-color-text-1);
+  border: 1px solid var(--sea-color-border-1);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  z-index: 120;
+}
+
+.sea-article-home-link.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sea-article-home-link:hover {
+  color: #fff;
+  background: var(--sea-color-primary);
+  border-color: var(--sea-color-primary);
+}
+
+/* 桌面端显示右侧目录 */
+@media (min-width: 1200px) {
+  .sea-article-toc-sidebar {
+    display: block;
+  }
+}
+
+/* 大屏幕适当调整宽度 */
+@media (min-width: 1400px) {
+  .sea-article-toc-sidebar {
+    width: 220px;
+    right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sea-article-home-link {
+    right: 1rem;
+    bottom: 1rem;
+    min-width: 3.25rem;
+    height: 3.25rem;
+    padding: 0 0.9rem;
+    font-size: 0.875rem;
+  }
+}
