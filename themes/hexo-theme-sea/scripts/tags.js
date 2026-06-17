@@ -2,6 +2,15 @@
 
 'use strict';
 
+const assetUrl = (url) => {
+  if (!url) return '';
+  if (/^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('data:')) return url;
+
+  const root = hexo.config.root || '/';
+  const normalizedRoot = root.endsWith('/') ? root : `${root}/`;
+  return `${normalizedRoot}${url.replace(/^\/+/, '')}`;
+};
+
 hexo.extend.tag.register('note', (args, content) => {
   const className = args.shift();
   let header = '';
@@ -23,7 +32,7 @@ hexo.extend.tag.register('friends', () => {
   const friendsEle = friends.map(item => {
     return `
       <a class="sea-friend-card" href="${item.link}" target="_blank">
-        <img class="sea-friend-avatar" src="${item.avatar}" alt="${item.name}" />
+        <img class="sea-friend-avatar" src="${assetUrl(item.avatar)}" alt="${item.name}" />
         <div class="sea-friend-content">
           <div class="sea-friend-name" title="${item.name}">${item.name}</div>
           <div class="sea-friend-desc" title="${item.desc}">${item.desc}</div>
@@ -49,7 +58,7 @@ hexo.extend.tag.register('works', () => {
           href="${item.link}"
           target="_blank"
         >
-          <img src="${item.cover}" alt="${item.name}" />
+          <img src="${assetUrl(item.cover)}" alt="${item.name}" />
         </a>` : ''}
         <div class="sea-works-content">
           <a
