@@ -55,3 +55,23 @@ pnpm run server
 pnpm run clean
 pnpm run build
 ```
+
+## 隐藏文章（线上不发布）
+
+在文章开头的 front matter 里加一行 `hidden: true`，这篇文章就不会出现在线上站点：
+
+```yaml
+---
+date: 2026-06-12 12:00:00
+title: 文章标题
+tags: [Agent]
+hidden: true
+---
+```
+
+- 默认（不写，或写 `hidden: false`）正常显示，行为不变。
+- 打了标记的文章**不生成任何页面**：首页、`/posts/`、归档、标签、分类、搜索索引里都不存在，直接访问原链接也会 404。
+- 只被隐藏文章使用的标签/分类会一并从标签页、分类页移除，不会留下空页面。
+- 实现见 `scripts/hidden-posts.js`（Hexo 站点级脚本，未改动主题与任何文章正文），删除该文件即可整体回退。
+- 本地新增或取消标记后请重新完整构建：`pnpm run clean && pnpm run build`。`hexo generate` 不会自动清理 `public/` 中的旧文件；GitHub Actions 每次都是干净构建，不受影响。
+- 注意：该开关只控制“线上是否发布”，文章源码本身仍在公开仓库的 `source/_posts/` 目录中。
